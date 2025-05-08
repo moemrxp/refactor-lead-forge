@@ -9,7 +9,7 @@ const ProfileHeader = () => {
         <div className="bg-black rounded-full p-1 mb-3">
           <div className="w-28 h-28 md:w-32 md:h-32 rounded-full bg-black flex items-center justify-center border-4 border-black overflow-hidden">
             <div className="text-white text-5xl font-bold flex items-center justify-center">
-              <img src="/lovable-uploads/f55c4201-b46f-44d0-baf7-160f0d3f7692.png" alt="Future Remodeling Logo" className="w-full h-full object-cover" />
+              <img src="/lovable-uploads/26be86e9-110b-488c-9811-b7b83d76afba.png" alt="Future Remodeling Logo" className="w-full h-full object-cover" />
             </div>
           </div>
         </div>
