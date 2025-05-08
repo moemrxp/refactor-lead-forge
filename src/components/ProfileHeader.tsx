@@ -28,7 +28,7 @@ const ProfileHeader = () => {
       </div>
       
       <div className="w-full md:flex-grow flex flex-col space-y-3">
-        <Button className="w-full flex items-center justify-center py-6 bg-sky-500 hover:bg-sky-400">
+        <Button className="w-full flex items-center justify-center py-6 bg-sky-600 hover:bg-sky-500">
           <Phone className="mr-2 h-5 w-5" /> Call Now
         </Button>
         <Button className="w-full bg-[#0a2463] hover:bg-[#081d4f] flex items-center justify-center py-6">

@@ -1,17 +1,14 @@
-
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { MapPin, Users, Globe, FileText } from "lucide-react";
-
 const BusinessInfo = () => {
-  return (
-    <Card className="mb-6">
+  return <Card className="mb-6">
       <CardHeader className="border-b pb-3">
         <CardTitle className="text-lg font-semibold text-[#0a2463]">Business Info</CardTitle>
       </CardHeader>
       <CardContent className="pt-4">
         <div className="space-y-4">
           <div className="flex">
-            <div className="text-blue-500 mr-4 mt-1">
+            <div className="text-blue-500 mr-4 mt-1 bg-transparent">
               <MapPin size={18} />
             </div>
             <div>
@@ -33,9 +30,9 @@ const BusinessInfo = () => {
           <div className="flex">
             <div className="text-blue-500 mr-4 mt-1">
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M5 8l6 6 6-6"/>
-                <path d="M12 2v12"/>
-                <path d="M5 14h14"/>
+                <path d="M5 8l6 6 6-6" />
+                <path d="M12 2v12" />
+                <path d="M5 14h14" />
               </svg>
             </div>
             <div>
@@ -78,8 +75,6 @@ const BusinessInfo = () => {
           </div>
         </div>
       </CardContent>
-    </Card>
-  );
+    </Card>;
 };
-
 export default BusinessInfo;
