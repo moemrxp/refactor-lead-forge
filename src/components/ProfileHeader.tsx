@@ -1,10 +1,7 @@
-
 import { Phone, MessageSquare, FileText } from "lucide-react";
 import { Button } from "./ui/button";
-
 const ProfileHeader = () => {
-  return (
-    <div className="flex flex-col items-center md:flex-row md:items-start md:space-x-8 p-6 md:p-8 bg-white rounded-lg shadow-sm mb-6">
+  return <div className="flex flex-col items-center md:flex-row md:items-start md:space-x-8 p-6 md:p-8 bg-white rounded-lg shadow-sm mb-6">
       <div className="flex flex-col items-center mb-6 md:mb-0">
         <div className="bg-black rounded-full p-1 mb-3">
           <div className="w-28 h-28 md:w-32 md:h-32 rounded-full bg-black flex items-center justify-center border-4 border-black overflow-hidden">
@@ -30,7 +27,7 @@ const ProfileHeader = () => {
       </div>
       
       <div className="w-full md:flex-grow flex flex-col space-y-3">
-        <Button className="w-full bg-[#3e92cc] hover:bg-[#2d7eb9] flex items-center justify-center py-6">
+        <Button className="w-full flex items-center justify-center py-6 bg-sky-600 hover:bg-sky-500">
           <Phone className="mr-2 h-5 w-5" /> Call Now
         </Button>
         <Button className="w-full bg-[#0a2463] hover:bg-[#081d4f] flex items-center justify-center py-6">
@@ -40,8 +37,6 @@ const ProfileHeader = () => {
           <FileText className="mr-2 h-5 w-5" /> Request a Quote
         </Button>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default ProfileHeader;
