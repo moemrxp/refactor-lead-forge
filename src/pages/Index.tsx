@@ -8,28 +8,45 @@ import ExpertFeed from "@/components/ExpertFeed";
 import ReviewsSection from "@/components/ReviewsSection";
 import FaqSection from "@/components/FaqSection";
 import OperatingHours from "@/components/OperatingHours";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const Index = () => {
+  const isMobile = useIsMobile();
+
   return (
     <div className="min-h-screen bg-gray-50">
       <Navbar />
       <div className="max-w-4xl mx-auto px-4 py-6">
         <ProfileHeader />
         
-        <div className="grid md:grid-cols-3 gap-6">
-          <div className="md:col-span-2 space-y-6">
+        {isMobile ? (
+          // Mobile layout
+          <div className="space-y-6">
             <AboutSection />
-            <ServicesSection />
+            <BusinessInfo />
             <ExpertFeed />
+            <ServicesSection />
             <ReviewsSection />
             <FaqSection />
-          </div>
-          
-          <div className="space-y-6">
-            <BusinessInfo />
             <OperatingHours />
           </div>
-        </div>
+        ) : (
+          // Desktop layout
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="md:col-span-2 space-y-6">
+              <AboutSection />
+              <ExpertFeed />
+              <ServicesSection />
+              <ReviewsSection />
+              <FaqSection />
+            </div>
+            
+            <div className="space-y-6">
+              <BusinessInfo />
+              <OperatingHours />
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
