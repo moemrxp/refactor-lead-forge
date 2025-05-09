@@ -1,3 +1,4 @@
+
 import { Search } from "lucide-react";
 import { Button } from "./ui/button";
 const Navbar = () => {
@@ -12,8 +13,9 @@ const Navbar = () => {
         </div>
       </div>
       <div className="flex items-center space-x-3">
-        
-        
+        <span className="text-xs text-gray-500 mr-2">
+          Powered by <span className="font-bold text-[#0a2463]">mr<span className="text-[#3e92cc]">xp</span></span>
+        </span>
         <Button className="bg-[#3e92cc] hover:bg-[#2d7eb9]">Become an Expert</Button>
       </div>
     </nav>;
