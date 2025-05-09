@@ -1,3 +1,4 @@
+
 import { Phone, MessageSquare, FileText } from "lucide-react";
 import { Button } from "./ui/button";
 import { Avatar, AvatarImage, AvatarFallback } from "./ui/avatar";
@@ -44,7 +45,7 @@ const ProfileHeader = () => {
               <Phone className="mr-2 h-5 w-5" /> Call Now
             </Button>
             <Button variant="default" size="lg" className="w-full bg-[#0a2463] hover:bg-[#081d4f] text-white">
-              <MessageSquare className="mr-2 h-5 w-5" /> Chat Now
+              <MessageSquare className="mr-2 h-5 w-5" /> Instant Message
             </Button>
             <Button variant="default" size="lg" className="w-full bg-[#0a2463] hover:bg-[#081d4f] text-white">
               <FileText className="mr-2 h-5 w-5" /> Request a Quote
@@ -91,7 +92,7 @@ const ProfileHeader = () => {
                 <Phone className="mr-2 h-5 w-5" /> Call Now
               </Button>
               <Button variant="default" size="lg" className="w-full bg-[#0a2463] hover:bg-[#081d4f]">
-                <MessageSquare className="mr-2 h-5 w-5" /> Chat Now
+                <MessageSquare className="mr-2 h-5 w-5" /> Instant Message
               </Button>
               <Button variant="default" size="lg" className="w-full bg-[#0a2463] hover:bg-[#081d4f]">
                 <FileText className="mr-2 h-5 w-5" /> Request a Quote
