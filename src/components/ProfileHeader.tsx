@@ -5,7 +5,7 @@ import { useIsMobile } from "@/hooks/use-mobile";
 import { Separator } from "./ui/separator";
 const ProfileHeader = () => {
   const isMobile = useIsMobile();
-  return <div className="bg-white rounded-lg shadow-md p-6 md:p-8">
+  return <div className="bg-white rounded-lg shadow-md p-6 md:p-8 py-[20px]">
       {/* Mobile layout */}
       {isMobile ? <>
           {/* Centered company logo and information */}
@@ -49,7 +49,7 @@ const ProfileHeader = () => {
             <Button variant="default" size="lg" className="w-full bg-[#0a2463] hover:bg-[#081d4f] text-white">
               <FileText className="mr-2 h-5 w-5" /> Request a Quote
             </Button>
-            <p className="text-xs text-center text-gray-500 -mt-1 font-bold">No long forms. Just quick info.</p>
+            <p className="text-xs text-center text-gray-500 -mt-1 font-bold py-0 my-[5px]">No long forms. Just quick info.</p>
           </div>
         </> : <>
           {/* Desktop layout - keeping as is */}
