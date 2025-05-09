@@ -5,7 +5,7 @@ import { useIsMobile } from "@/hooks/use-mobile";
 import { Separator } from "./ui/separator";
 const ProfileHeader = () => {
   const isMobile = useIsMobile();
-  return <div className="bg-white rounded-lg shadow-md p-6 md:p-8 py-[20px]">
+  return <div className="bg-white rounded-lg shadow-md p-6 md:p-8 py-[15px]">
       {/* Mobile layout */}
       {isMobile ? <>
           {/* Centered company logo and information */}
