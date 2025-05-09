@@ -3,23 +3,15 @@ import { Button } from "./ui/button";
 import { Avatar, AvatarImage, AvatarFallback } from "./ui/avatar";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { Separator } from "./ui/separator";
-
 const ProfileHeader = () => {
   const isMobile = useIsMobile();
-  
-  return (
-    <div className="bg-white rounded-lg shadow-md p-6 md:p-8">
+  return <div className="bg-white rounded-lg shadow-md p-6 md:p-8">
       {/* Mobile layout */}
-      {isMobile ? (
-        <>
+      {isMobile ? <>
           {/* Centered company logo and information */}
           <div className="flex flex-col items-center text-center">
             <Avatar className="w-28 h-28 rounded-full border-4 border-[#0a2463]">
-              <AvatarImage 
-                src="/lovable-uploads/26be86e9-110b-488c-9811-b7b83d76afba.png" 
-                alt="Future Remodeling Logo"
-                className="object-cover"
-              />
+              <AvatarImage src="/lovable-uploads/26be86e9-110b-488c-9811-b7b83d76afba.png" alt="Future Remodeling Logo" className="object-cover" />
               <AvatarFallback className="bg-black text-white text-3xl font-bold">FR</AvatarFallback>
             </Avatar>
             
@@ -48,7 +40,7 @@ const ProfileHeader = () => {
           
           {/* CTA buttons */}
           <div className="mt-6 space-y-3">
-            <Button variant="default" size="lg" className="w-full bg-[#7FD3F3] hover:bg-[#6bc4e4] text-white">
+            <Button variant="default" size="lg" className="w-full text-white bg-sky-600 hover:bg-sky-500">
               <Phone className="mr-2 h-5 w-5" /> Call Now
             </Button>
             <Button variant="default" size="lg" className="w-full bg-[#0a2463] hover:bg-[#081d4f] text-white">
@@ -58,17 +50,11 @@ const ProfileHeader = () => {
               <FileText className="mr-2 h-5 w-5" /> Request a Quote
             </Button>
           </div>
-        </>
-      ) : (
-        <>
+        </> : <>
           {/* Desktop layout - keeping as is */}
           <div className="flex items-center gap-6 mb-6">
             <Avatar className="w-28 h-28 rounded-full border-4 border-black">
-              <AvatarImage 
-                src="/lovable-uploads/26be86e9-110b-488c-9811-b7b83d76afba.png" 
-                alt="Future Remodeling Logo"
-                className="object-cover"
-              />
+              <AvatarImage src="/lovable-uploads/26be86e9-110b-488c-9811-b7b83d76afba.png" alt="Future Remodeling Logo" className="object-cover" />
               <AvatarFallback className="bg-black text-white text-3xl font-bold">FR</AvatarFallback>
             </Avatar>
             
@@ -112,10 +98,7 @@ const ProfileHeader = () => {
               </Button>
             </div>
           </div>
-        </>
-      )}
-    </div>
-  );
+        </>}
+    </div>;
 };
-
 export default ProfileHeader;
