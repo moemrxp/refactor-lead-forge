@@ -97,7 +97,7 @@ const ProfileHeader = () => {
               <Button variant="default" size="lg" className="w-full bg-[#0a2463] hover:bg-[#081d4f]">
                 <FileText className="mr-2 h-5 w-5" /> Request a Quote
               </Button>
-              <p className="text-xs text-center text-gray-500 -mt-1">No long forms. Just quick info.</p>
+              <p className="text-xs text-center text-gray-500 -mt-1 font-bold py-[10px]">No long forms. Just quick info.</p>
             </div>
           </div>
         </>}
