@@ -93,61 +93,77 @@ const ReviewsSection = () => {
               <DialogTitle className="text-[#0a2463]">Share your experience</DialogTitle>
             </DialogHeader>
             
-            <form onSubmit={form.handleSubmit(handleSubmit)} className="space-y-4">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Your Rating</label>
-                <div className="flex">
-                  {[1, 2, 3, 4, 5].map((star) => (
-                    <Star
-                      key={star}
-                      className={`h-8 w-8 cursor-pointer ${
-                        selectedRating >= star ? "text-yellow-400 fill-yellow-400" : "text-gray-300"
-                      }`}
-                      onClick={() => setSelectedRating(star)}
-                    />
-                  ))}
+            <Form {...form}>
+              <form onSubmit={form.handleSubmit(handleSubmit)} className="space-y-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Your Rating</label>
+                  <div className="flex">
+                    {[1, 2, 3, 4, 5].map((star) => (
+                      <Star
+                        key={star}
+                        className={`h-8 w-8 cursor-pointer ${
+                          selectedRating >= star ? "text-yellow-400 fill-yellow-400" : "text-gray-300"
+                        }`}
+                        onClick={() => setSelectedRating(star)}
+                      />
+                    ))}
+                  </div>
                 </div>
-              </div>
-              
-              <FormItem>
-                <FormLabel>Your Name</FormLabel>
-                <FormControl>
-                  <Input {...form.register("name")} placeholder="Enter your name" />
-                </FormControl>
-              </FormItem>
-              
-              <FormItem>
-                <FormLabel>Your Review</FormLabel>
-                <FormControl>
-                  <Textarea 
-                    {...form.register("comment")}
-                    placeholder="Share your experience with this business"
-                    className="min-h-[100px]"
-                  />
-                </FormControl>
-              </FormItem>
+                
+                <FormField
+                  control={form.control}
+                  name="name"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Your Name</FormLabel>
+                      <FormControl>
+                        <Input {...field} placeholder="Enter your name" />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                
+                <FormField
+                  control={form.control}
+                  name="comment"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Your Review</FormLabel>
+                      <FormControl>
+                        <Textarea 
+                          {...field}
+                          placeholder="Share your experience with this business"
+                          className="min-h-[100px]"
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
 
-              <DialogFooter className="sm:justify-end">
-                <Button 
-                  type="button" 
-                  variant="outline" 
-                  onClick={() => {
-                    setDialogOpen(false);
-                    setSelectedRating(0);
-                    form.reset();
-                  }}
-                >
-                  Cancel
-                </Button>
-                <Button 
-                  type="submit" 
-                  disabled={selectedRating === 0}
-                  className="bg-[#3e92cc] hover:bg-[#3e92cc]/90"
-                >
-                  Submit Review
-                </Button>
-              </DialogFooter>
-            </form>
+                <DialogFooter className="sm:justify-end">
+                  <Button 
+                    type="button" 
+                    variant="outline" 
+                    onClick={() => {
+                      setDialogOpen(false);
+                      setSelectedRating(0);
+                      form.reset();
+                    }}
+                  >
+                    Cancel
+                  </Button>
+                  <Button 
+                    type="submit" 
+                    disabled={selectedRating === 0}
+                    className="bg-[#3e92cc] hover:bg-[#3e92cc]/90"
+                  >
+                    Submit Review
+                  </Button>
+                </DialogFooter>
+              </form>
+            </Form>
           </DialogContent>
         </Dialog>
       </CardContent>
