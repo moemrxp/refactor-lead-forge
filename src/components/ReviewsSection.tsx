@@ -1,8 +1,43 @@
 
+import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { Progress } from "./ui/progress";
+import { Button } from "./ui/button";
+import { Textarea } from "./ui/textarea";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "./ui/form";
+import { Input } from "./ui/input";
+import { useForm } from "react-hook-form";
+import { MessageSquare, Star } from "lucide-react";
+import { toast } from "./ui/sonner";
+
+type ReviewFormValues = {
+  name: string;
+  rating: number;
+  comment: string;
+}
 
 const ReviewsSection = () => {
+  const [showForm, setShowForm] = useState(false);
+  const [selectedRating, setSelectedRating] = useState(0);
+  
+  const form = useForm<ReviewFormValues>({
+    defaultValues: {
+      name: "",
+      rating: 0,
+      comment: ""
+    }
+  });
+
+  const handleSubmit = (data: ReviewFormValues) => {
+    // In a real application, this would send the review to a backend
+    console.log("Review submitted:", { ...data, rating: selectedRating });
+    
+    toast.success("Thank you for your review!");
+    setShowForm(false);
+    setSelectedRating(0);
+    form.reset();
+  };
+
   return (
     <Card className="mb-6">
       <CardHeader className="border-b pb-3">
@@ -36,6 +71,78 @@ const ReviewsSection = () => {
             </div>
           ))}
         </div>
+
+        {!showForm ? (
+          <Button 
+            onClick={() => setShowForm(true)} 
+            className="w-full mt-6 bg-[#3e92cc] hover:bg-[#3e92cc]/90"
+          >
+            <MessageSquare className="w-4 h-4 mr-2" />
+            Write a Review
+          </Button>
+        ) : (
+          <div className="mt-6 bg-gray-50 p-4 rounded-lg border">
+            <h3 className="font-medium mb-4 text-[#0a2463]">Share your experience</h3>
+            
+            <form onSubmit={form.handleSubmit(handleSubmit)}>
+              <div className="space-y-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Your Rating</label>
+                  <div className="flex">
+                    {[1, 2, 3, 4, 5].map((star) => (
+                      <Star
+                        key={star}
+                        className={`h-8 w-8 cursor-pointer ${
+                          selectedRating >= star ? "text-yellow-400 fill-yellow-400" : "text-gray-300"
+                        }`}
+                        onClick={() => setSelectedRating(star)}
+                      />
+                    ))}
+                  </div>
+                </div>
+                
+                <FormItem>
+                  <FormLabel>Your Name</FormLabel>
+                  <FormControl>
+                    <Input {...form.register("name")} placeholder="Enter your name" />
+                  </FormControl>
+                </FormItem>
+                
+                <FormItem>
+                  <FormLabel>Your Review</FormLabel>
+                  <FormControl>
+                    <Textarea 
+                      {...form.register("comment")}
+                      placeholder="Share your experience with this business"
+                      className="min-h-[100px]"
+                    />
+                  </FormControl>
+                </FormItem>
+
+                <div className="flex justify-end space-x-2">
+                  <Button 
+                    type="button" 
+                    variant="outline" 
+                    onClick={() => {
+                      setShowForm(false);
+                      setSelectedRating(0);
+                      form.reset();
+                    }}
+                  >
+                    Cancel
+                  </Button>
+                  <Button 
+                    type="submit" 
+                    disabled={selectedRating === 0}
+                    className="bg-[#3e92cc] hover:bg-[#3e92cc]/90"
+                  >
+                    Submit Review
+                  </Button>
+                </div>
+              </div>
+            </form>
+          </div>
+        )}
       </CardContent>
     </Card>
   );
