@@ -3,36 +3,11 @@ import { Button } from "./ui/button";
 import { Avatar, AvatarImage, AvatarFallback } from "./ui/avatar";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { Separator } from "./ui/separator";
-import { Input } from "./ui/input";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./ui/select";
-import { useState } from "react";
-import { toast } from "./ui/sonner";
-
 const ProfileHeader = () => {
   const isMobile = useIsMobile();
-  const [formData, setFormData] = useState({
-    name: "",
-    zipCode: "",
-    service: "",
-    phoneNumber: ""
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log("Quote request submitted:", formData);
-    toast.success("Quote request submitted! We'll contact you soon.");
-    setFormData({ name: "", zipCode: "", service: "", phoneNumber: "" });
-  };
-
-  const handleInputChange = (field: string, value: string) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
-  };
-
-  return (
-    <div className="bg-white rounded-lg shadow-md p-6 md:p-8 py-[15px]">
+  return <div className="bg-white rounded-lg shadow-md p-6 md:p-8 py-[15px]">
       {/* Mobile layout */}
-      {isMobile ? (
-        <>
+      {isMobile ? <>
           {/* Centered company logo and information */}
           <div className="flex flex-col items-center text-center">
             <Avatar className="w-28 h-28 rounded-full border-4 border-[#0a2463]">
@@ -71,51 +46,12 @@ const ProfileHeader = () => {
             <Button variant="default" size="lg" className="w-full bg-[#0a2463] hover:bg-[#081d4f] text-white">
               <MessageSquare className="mr-2 h-5 w-5" /> Instant Message
             </Button>
-            
-            {/* Quote Form */}
-            <form onSubmit={handleSubmit} className="space-y-3">
-              <Input
-                placeholder="Your Name"
-                value={formData.name}
-                onChange={(e) => handleInputChange("name", e.target.value)}
-                required
-              />
-              <Input
-                placeholder="Zip Code"
-                value={formData.zipCode}
-                onChange={(e) => handleInputChange("zipCode", e.target.value)}
-                required
-              />
-              <Select value={formData.service} onValueChange={(value) => handleInputChange("service", value)} required>
-                <SelectTrigger>
-                  <SelectValue placeholder="Select a Service" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="roofing">Roofing</SelectItem>
-                  <SelectItem value="siding">Siding</SelectItem>
-                  <SelectItem value="windows">Windows</SelectItem>
-                  <SelectItem value="gutters">Gutters</SelectItem>
-                  <SelectItem value="kitchen">Kitchen Remodeling</SelectItem>
-                  <SelectItem value="bathroom">Bathroom Remodeling</SelectItem>
-                  <SelectItem value="other">Other</SelectItem>
-                </SelectContent>
-              </Select>
-              <Input
-                placeholder="Phone Number"
-                value={formData.phoneNumber}
-                onChange={(e) => handleInputChange("phoneNumber", e.target.value)}
-                required
-              />
-              <Button type="submit" size="lg" className="w-full bg-[#0a2463] hover:bg-[#081d4f] text-white">
-                <FileText className="mr-2 h-5 w-5" /> Submit Quote Request
-              </Button>
-            </form>
-            
+            <Button variant="default" size="lg" className="w-full bg-[#0a2463] hover:bg-[#081d4f] text-white">
+              <FileText className="mr-2 h-5 w-5" /> Request a Quote
+            </Button>
             <p className="text-xs text-center text-gray-500 -mt-1 font-bold py-px my-[6px]">No long forms. Just quick info.</p>
           </div>
-        </>
-      ) : (
-        <>
+        </> : <>
           {/* Desktop layout - keeping as is */}
           <div className="flex items-center gap-6 mb-6">
             <Avatar className="w-28 h-28 rounded-full border-4 border-black">
@@ -158,53 +94,13 @@ const ProfileHeader = () => {
               <Button variant="default" size="lg" className="w-full bg-[#0a2463] hover:bg-[#081d4f]">
                 <MessageSquare className="mr-2 h-5 w-5" /> Instant Message
               </Button>
-              
-              {/* Quote Form */}
-              <form onSubmit={handleSubmit} className="space-y-3">
-                <Input
-                  placeholder="Your Name"
-                  value={formData.name}
-                  onChange={(e) => handleInputChange("name", e.target.value)}
-                  required
-                />
-                <Input
-                  placeholder="Zip Code"
-                  value={formData.zipCode}
-                  onChange={(e) => handleInputChange("zipCode", e.target.value)}
-                  required
-                />
-                <Select value={formData.service} onValueChange={(value) => handleInputChange("service", value)} required>
-                  <SelectTrigger>
-                    <SelectValue placeholder="Select a Service" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="roofing">Roofing</SelectItem>
-                    <SelectItem value="siding">Siding</SelectItem>
-                    <SelectItem value="windows">Windows</SelectItem>
-                    <SelectItem value="gutters">Gutters</SelectItem>
-                    <SelectItem value="kitchen">Kitchen Remodeling</SelectItem>
-                    <SelectItem value="bathroom">Bathroom Remodeling</SelectItem>
-                    <SelectItem value="other">Other</SelectItem>
-                  </SelectContent>
-                </Select>
-                <Input
-                  placeholder="Phone Number"
-                  value={formData.phoneNumber}
-                  onChange={(e) => handleInputChange("phoneNumber", e.target.value)}
-                  required
-                />
-                <Button type="submit" size="lg" className="w-full bg-[#0a2463] hover:bg-[#081d4f]">
-                  <FileText className="mr-2 h-5 w-5" /> Submit Quote Request
-                </Button>
-              </form>
-              
+              <Button variant="default" size="lg" className="w-full bg-[#0a2463] hover:bg-[#081d4f]">
+                <FileText className="mr-2 h-5 w-5" /> Request a Quote
+              </Button>
               <p className="text-xs text-center text-gray-500 -mt-1 font-bold py-[10px]">No long forms. Just quick info.</p>
             </div>
           </div>
-        </>
-      )}
-    </div>
-  );
+        </>}
+    </div>;
 };
-
 export default ProfileHeader;
