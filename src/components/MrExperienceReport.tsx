@@ -1,12 +1,9 @@
-
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { Badge } from "./ui/badge";
 import { Shield, Calendar, MapPin, Star, CheckCircle } from "lucide-react";
 import { Button } from "./ui/button";
-
 const MrExperienceReport = () => {
-  return (
-    <Card className="mb-6 border-2 border-blue-200 bg-gradient-to-r from-blue-50 to-indigo-50">
+  return <Card className="mb-6 border-2 border-blue-200 bg-gradient-to-r from-blue-50 to-indigo-50">
       <CardHeader className="border-b border-blue-200 pb-3">
         <div className="flex items-center justify-between">
           <CardTitle className="text-xl font-bold text-[#0a2463] flex items-center">
@@ -77,16 +74,9 @@ const MrExperienceReport = () => {
         </div>
         
         <div className="mt-6 pt-4 border-t border-blue-200">
-          <Button 
-            variant="outline" 
-            className="w-full border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white"
-          >
-            View Full Mr. Experience Report
-          </Button>
+          
         </div>
       </CardContent>
-    </Card>
-  );
+    </Card>;
 };
-
 export default MrExperienceReport;
