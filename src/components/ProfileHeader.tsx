@@ -3,11 +3,16 @@ import { Button } from "./ui/button";
 import { Avatar, AvatarImage, AvatarFallback } from "./ui/avatar";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { Separator } from "./ui/separator";
+import VerifiedBadge from "./VerifiedBadge";
+
 const ProfileHeader = () => {
   const isMobile = useIsMobile();
-  return <div className="bg-white rounded-lg shadow-md p-6 md:p-8 py-[15px]">
+  
+  return (
+    <div className="bg-white rounded-lg shadow-md p-6 md:p-8 py-[15px]">
       {/* Mobile layout */}
-      {isMobile ? <>
+      {isMobile ? (
+        <>
           {/* Centered company logo and information */}
           <div className="flex flex-col items-center text-center">
             <Avatar className="w-28 h-28 rounded-full border-4 border-[#0a2463]">
@@ -25,6 +30,10 @@ const ProfileHeader = () => {
                     </svg>
                   </span>
                 </h1>
+              </div>
+              
+              <div className="flex justify-center items-center mt-3">
+                <VerifiedBadge />
               </div>
               
               <div className="flex justify-center items-center mt-2">
@@ -51,7 +60,9 @@ const ProfileHeader = () => {
             </Button>
             <p className="text-xs text-center text-gray-500 -mt-1 font-bold py-px my-[6px]">No long forms. Just quick info.</p>
           </div>
-        </> : <>
+        </>
+      ) : (
+        <>
           {/* Desktop layout - keeping as is */}
           <div className="flex items-center gap-6 mb-6">
             <Avatar className="w-28 h-28 rounded-full border-4 border-black">
@@ -59,7 +70,7 @@ const ProfileHeader = () => {
               <AvatarFallback className="bg-black text-white text-3xl font-bold">FR</AvatarFallback>
             </Avatar>
             
-            <div>
+            <div className="flex-1">
               <div className="flex items-center flex-wrap">
                 <h1 className="text-3xl font-bold text-[#0a2463] flex items-center">
                   Future Remodeling
@@ -69,13 +80,17 @@ const ProfileHeader = () => {
                     </svg>
                   </span>
                 </h1>
-                
-                <div className="flex items-center ml-6">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 text-amber-500">
-                    <path fillRule="evenodd" d="M11.484 2.17a.75.75 0 011.032 0 11.209 11.209 0 007.877 3.08.75.75 0 01.722.515 12.74 12.74 0 01.635 3.985c0 5.942-4.064 10.933-9.563 12.348a.749.749 0 01-.374 0C6.314 20.683 2.25 15.692 2.25 9.75c0-1.39.223-2.73.635-3.985a.75.75 0 01.722-.516l.143.001c2.996 0 5.718-1.17 7.734-3.08zM12 8.25a.75.75 0 01.75.75v3.75a.75.75 0 01-1.5 0V9a.75.75 0 01.75-.75zM12 15a.75.75 0 00-.75.75v.008c0 .414.336.75.75.75h.008a.75.75 0 00.75-.75v-.008a.75.75 0 00-.75-.75H12z" clipRule="evenodd" />
-                  </svg>
-                  <span className="ml-2 text-amber-700 font-medium">15 Years of Experience</span>
-                </div>
+              </div>
+              
+              <div className="mt-2">
+                <VerifiedBadge />
+              </div>
+              
+              <div className="flex items-center mt-3">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 text-amber-500">
+                  <path fillRule="evenodd" d="M11.484 2.17a.75.75 0 011.032 0 11.209 11.209 0 007.877 3.08.75.75 0 01.722.515 12.74 12.74 0 01.635 3.985c0 5.942-4.064 10.933-9.563 12.348a.749.749 0 01-.374 0C6.314 20.683 2.25 15.692 2.25 9.75c0-1.39.223-2.73.635-3.985a.75.75 0 01.722-.516l.143.001c2.996 0 5.718-1.17 7.734-3.08zM12 8.25a.75.75 0 01.75.75v3.75a.75.75 0 01-1.5 0V9a.75.75 0 01.75-.75zM12 15a.75.75 0 00-.75.75v.008c0 .414.336.75.75.75h.008a.75.75 0 00.75-.75v-.008a.75.75 0 00-.75-.75H12z" clipRule="evenodd" />
+                </svg>
+                <span className="ml-2 text-amber-700 font-medium">15 Years of Experience</span>
               </div>
               
               <p className="text-gray-600 mt-2">Premier home renovation and remodeling services</p>
@@ -100,7 +115,10 @@ const ProfileHeader = () => {
               <p className="text-xs text-center text-gray-500 -mt-1 font-bold py-[10px]">No long forms. Just quick info.</p>
             </div>
           </div>
-        </>}
-    </div>;
+        </>
+      )}
+    </div>
+  );
 };
+
 export default ProfileHeader;
