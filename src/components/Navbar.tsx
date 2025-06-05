@@ -1,3 +1,4 @@
+
 import { Search } from "lucide-react";
 import { Button } from "./ui/button";
 const Navbar = () => {
@@ -5,7 +6,7 @@ const Navbar = () => {
       <div className="flex items-center space-x-4">
         <div className="flex items-center text-gray-500">
           <span className="text-xs md:text-sm px-0 text-right font-bold">Powered by</span>
-          <img src="/lovable-uploads/a7a109b2-0d70-48a1-8036-8871b08a4c90.png" alt="mrxp logo" className="ml-1 h-8 md:h-10" />
+          <img src="/lovable-uploads/a7a109b2-0d70-48a1-8036-8871b08a4c90.png" alt="mrxp logo" className="ml-1 h-10 md:h-12" />
         </div>
         <div className="hidden md:flex relative">
           
