@@ -10,7 +10,7 @@ const Navbar = () => {
           <img 
             src="/lovable-uploads/a7a109b2-0d70-48a1-8036-8871b08a4c90.png" 
             alt="mrxp logo" 
-            className="ml-1 h-6 md:h-8"
+            className="ml-1 h-8 md:h-10"
           />
         </div>
         <div className="hidden md:flex relative">
